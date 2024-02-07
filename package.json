@@ -1,6 +1,6 @@
 {
-  "name": "mcf-wysiwyg",
-  "version": "3.0.2",
+  "name": "mcf-editor",
+  "version": "3.0.4",
   "description": "Simple and lightweight React WYSIWYG editor",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.mjs",
@@ -13,7 +13,6 @@
     "lint": "tsc --noEmit && eslint src examples",
     "postversion": "git push && git push --tags",
     "prepare": "npm install --prefix examples/typescript",
-    "prepack": "npm run build && npm run test",
     "test": "npm run lint && spech",
     "test:e2e": "npm test --prefix e2e/cra",
     "test:full": "npm run test && npm run test:e2e"
