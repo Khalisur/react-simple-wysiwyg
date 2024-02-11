@@ -66,10 +66,13 @@ export const BtnUndo = createButton('Undo', '↶', 'undo');
 function findListElement(node: Node): HTMLElement | null {
   let currentElement: Node | null = node;
   while (currentElement) {
-    if (currentElement.nodeType === Node.ELEMENT_NODE && (currentElement as HTMLElement).tagName.toLowerCase() === 'ul' || (currentElement as HTMLElement).tagName.toLowerCase() === 'ol') {
-      return currentElement as HTMLElement;
+    if(currentElement){
+      if (currentElement?.nodeType === Node.ELEMENT_NODE && (currentElement as HTMLElement)?.tagName?.toLowerCase() === 'ul' || (currentElement as HTMLElement)?.tagName?.toLowerCase() === 'ol') {
+        return currentElement as HTMLElement;
+      }
+      currentElement = currentElement?.parentNode;
     }
-    currentElement = currentElement.parentNode;
+    
   }
   return null;
 }

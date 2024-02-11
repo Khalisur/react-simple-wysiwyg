@@ -115,6 +115,5 @@ declare function HtmlButton({ ...rest }: {
     [x: string]: any;
 }): React.JSX.Element;
 declare function Separator(): React.JSX.Element | null;
-declare const tolllll: Element | null;
 declare function Toolbar(props: HTMLAttributes<HTMLDivElement>): React.JSX.Element;
-export { ContentEditable, ContentEditableEvent, ContentEditableProps, DefaultEditor, DefaultEditor as default, Editor, EditorProps, EditorContext, EditorProvider, useEditorState, EditorState, HtmlEditor, BtnBold, BtnBulletList, BtnAligenLeft, BtnAlignCenter, BtnAlignRight, BtnClearFormatting, BtnItalic, BtnStrikeThrough, BtnLink, BtnNumberedList, BtnRedo, BtnUnderline, BtnUndo, createButton, BtnStyles, createDropdown, Dropdown, DropDownItem, DropDownFactoryProps, DropdownProps, HtmlButton, Separator, tolllll, Toolbar };
+export { ContentEditable, ContentEditableEvent, ContentEditableProps, DefaultEditor, DefaultEditor as default, Editor, EditorProps, EditorContext, EditorProvider, useEditorState, EditorState, HtmlEditor, BtnBold, BtnBulletList, BtnAligenLeft, BtnAlignCenter, BtnAlignRight, BtnClearFormatting, BtnItalic, BtnStrikeThrough, BtnLink, BtnNumberedList, BtnRedo, BtnUnderline, BtnUndo, createButton, BtnStyles, createDropdown, Dropdown, DropDownItem, DropDownFactoryProps, DropdownProps, HtmlButton, Separator, Toolbar };
