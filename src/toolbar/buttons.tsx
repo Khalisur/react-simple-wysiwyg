@@ -109,11 +109,11 @@ export function createButton(
           const parentElement = range.commonAncestorContainer.parentElement;
           if(command === 'justifyCenter'){
             if (parentElement) {
-              if(parentElement.tagName.toLowerCase() === 'div'){
+              if(parentElement?.tagName?.toLowerCase() === 'div'){
                 document.execCommand(command)
               }
               let listElement = findListElement(parentElement);
-              if (!listElement && parentElement.tagName.toLowerCase() === 'li') {
+              if (!listElement && parentElement?.tagName?.toLowerCase() === 'li') {
                 listElement = findListElement(range.commonAncestorContainer);
               }
               if (listElement) {
@@ -129,11 +129,11 @@ export function createButton(
           } 
           else if(command === 'justifyLeft'){
             if (parentElement) {
-              if(parentElement.tagName.toLowerCase() === 'div'){
+              if(parentElement?.tagName?.toLowerCase() === 'div'){
                 document.execCommand(command)
               }
               let listElement = findListElement(parentElement);
-              if (!listElement && parentElement.tagName.toLowerCase() === 'li') {
+              if (!listElement && parentElement?.tagName?.toLowerCase() === 'li') {
                 listElement = findListElement(range.commonAncestorContainer);
               }
               if (listElement) {
@@ -154,11 +154,11 @@ export function createButton(
           }
           else if(command === 'justifyRight'){
             if (parentElement) {
-              if(parentElement.tagName.toLowerCase() === 'div'){
+              if(parentElement?.tagName?.toLowerCase() === 'div'){
                 document.execCommand(command)
               }
               let listElement = findListElement(parentElement);
-              if (!listElement && parentElement.tagName.toLowerCase() === 'li') {
+              if (!listElement && parentElement?.tagName?.toLowerCase() === 'li') {
                 listElement = findListElement(range.commonAncestorContainer);
               }
               if (listElement) {
