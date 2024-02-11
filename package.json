@@ -1,6 +1,6 @@
 {
   "name": "mcf-editor",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "Simple and lightweight React WYSIWYG editor",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.mjs",
