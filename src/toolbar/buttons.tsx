@@ -63,6 +63,17 @@ export const BtnUnderline = createButton(
 
 export const BtnUndo = createButton('Undo', '↶', 'undo');
 
+function findListElement(node: Node): HTMLElement | null {
+  let currentElement: Node | null = node;
+  while (currentElement) {
+    if (currentElement.nodeType === Node.ELEMENT_NODE && (currentElement as HTMLElement).tagName.toLowerCase() === 'ul' || (currentElement as HTMLElement).tagName.toLowerCase() === 'ol') {
+      return currentElement as HTMLElement;
+    }
+    currentElement = currentElement.parentNode;
+  }
+  return null;
+}
+
 export function createButton(
   title: string,
   content: ReactNode,
@@ -75,7 +86,6 @@ export function createButton(
   function ButtonFactory(props: HTMLAttributes<HTMLButtonElement>) {
     const editorState = useEditorState();
     const { $el, $selection } = editorState;
-
     let active = false;
     if (typeof command === 'string') {
       active = !!$selection && document.queryCommandState(command);
@@ -83,7 +93,6 @@ export function createButton(
 
     function onAction(e: MouseEvent<HTMLButtonElement>) {
       e.preventDefault();
-
       if (document.activeElement !== $el) {
         $el?.focus();
       }
@@ -91,10 +100,95 @@ export function createButton(
       if (typeof command === 'function') {
         command(editorState);
       } else {
-        document.execCommand(command);
+        if((command === 'justifyCenter' || command === 'justifyLeft' || command ==='justifyRight') === false){
+          document.execCommand(command)
+        }
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+          const range = selection.getRangeAt(0);
+          const parentElement = range.commonAncestorContainer.parentElement;
+          if(command === 'justifyCenter'){
+            if (parentElement) {
+              if(parentElement.tagName.toLowerCase() === 'div'){
+                document.execCommand(command)
+              }
+              let listElement = findListElement(parentElement);
+              if (!listElement && parentElement.tagName.toLowerCase() === 'li') {
+                listElement = findListElement(range.commonAncestorContainer);
+              }
+              if (listElement) {
+                listElement.style.display = 'flex';
+                listElement.style.flexDirection= 'column'
+                listElement.style.alignItems=''
+                listElement.style.width = '95%'
+                listElement.style.marginLeft = '50%'
+                listElement.style.marginRight = '50%'
+              }
+              
+            }
+          } 
+          else if(command === 'justifyLeft'){
+            if (parentElement) {
+              if(parentElement.tagName.toLowerCase() === 'div'){
+                document.execCommand(command)
+              }
+              let listElement = findListElement(parentElement);
+              if (!listElement && parentElement.tagName.toLowerCase() === 'li') {
+                listElement = findListElement(range.commonAncestorContainer);
+              }
+              if (listElement) {
+                // if(listElement.tagName.toLowerCase() === 'ul' || 'ol'){
+                //   if(parentElement.tagName.toLowerCase() === 'li'){
+                //     parentElement.style.textAlign=''
+                //   }
+                // }
+                listElement.style.display = 'flex';
+                listElement.style.flexDirection= 'column'
+                listElement.style.alignItems='start'
+                listElement.style.width = ''
+                listElement.style.marginLeft = ''
+                listElement.style.marginRight = ''
+              }
+              
+            }
+          }
+          else if(command === 'justifyRight'){
+            if (parentElement) {
+              if(parentElement.tagName.toLowerCase() === 'div'){
+                document.execCommand(command)
+              }
+              let listElement = findListElement(parentElement);
+              if (!listElement && parentElement.tagName.toLowerCase() === 'li') {
+                listElement = findListElement(range.commonAncestorContainer);
+              }
+              if (listElement) {
+                // if(listElement.tagName.toLowerCase() === 'ul' || 'ol'){
+                //   if(parentElement.tagName.toLowerCase() === 'li'){
+                //     parentElement.style.textAlign=''
+                //   }
+                // }
+                listElement.style.display = 'flex';
+                listElement.style.flexDirection= 'column'
+                listElement.style.alignItems='end'
+                listElement.style.width = ''
+                listElement.style.marginLeft = ''
+                listElement.style.marginRight = ''
+              }
+              
+            }
+          }
+          
+          // if (parentElement) {
+          //   if(command === 'justifyCenter'){
+          //     parentElement.style.textAlign = 'center';
+          //     parentElement.style.display = 'flex'
+          //     parentElement.style.justifyContent = 'center'
+          //   }
+            
+          // }
+        }
       }
     }
-
     if (editorState.htmlMode) {
       return null;
     }

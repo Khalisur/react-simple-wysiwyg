@@ -13,13 +13,32 @@
   flex: 1 0 auto;
   outline: none;
   /* padding: 0.5rem; */
-  padding-top: 65px;
+  padding-top: 58px;
   padding-right: 8px;
   padding-left: 28px;
   border-radius: 6px;
   border: 1px solid #EEEFF3;
   position: relative;
   min-height: 164px;
+  max-height: 164px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 4px;
+}
+.wrapper{
+  background-color: white;
+  width: 95%;
+  height: 50px;
+  position: absolute;
+  top: 2px;
+  left: 24px;
+  z-index: 1;
+}
+.rsw-ce ul {
+  padding-inline-start: 18px;
+}
+.rsw-ce ol {
+  padding-inline-start: 18px;
 }
 
 
@@ -52,7 +71,7 @@
 }
 
 .rsw-btn {
-  background: transparent;
+  background-color:transparent;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -70,9 +89,17 @@
 .rsw-btn:hover {
   background: #E6EAFE;
 }
-
+.rsw-btn:hover .alignCenterIcon {
+  color: #4062F4;
+}
+.rsw-btn .alignCenterIcon {
+  color: #393F63;
+}
 .rsw-btn[data-active='true'] {
   background: #E6EAFE;
+}
+.rsw-btn[data-active='true'] .alignCenterIcon {
+  color: #4062F4;
 }
 
 .rsw-toolbar {
@@ -84,7 +111,14 @@
   height: 32px;
   position: absolute;
   padding-left: 4px;
-  top: 25px;
-  right: 25px;
-  width:97%;
+  top: 12px;
+  right: 0px;
+  width:100%;
+  gap: 4px;
+  z-index: 1;
+}
+li::marker {
+  /* Your desired styles for the marker, e.g., */
+  text-align: center;
+  /* ... more styles ... */
 }
