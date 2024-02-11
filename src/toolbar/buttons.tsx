@@ -112,13 +112,12 @@ export function createButton(
           const parentElement = range.commonAncestorContainer.parentElement;
           if(command === 'justifyCenter'){
             if (parentElement) {
-              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || parentElement?.tagName?.toLowerCase() === 'b' || parentElement?.tagName?.toLowerCase() === 'u' || parentElement?.tagName?.toLowerCase() === 'i'){
-                document.execCommand(command)
-              }
+              
               let listElement = findListElement(parentElement);
               if (!listElement && parentElement?.tagName?.toLowerCase() === 'li') {
                 listElement = findListElement(range.commonAncestorContainer);
               }
+              
               if (listElement) {
                 listElement.style.display = 'flex';
                 listElement.style.flexDirection= 'column'
@@ -126,15 +125,19 @@ export function createButton(
                 listElement.style.width = '95%'
                 listElement.style.marginLeft = '50%'
                 listElement.style.marginRight = '50%'
+              } else {
+                if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || parentElement?.tagName?.toLowerCase() === 'b' || parentElement?.tagName?.toLowerCase() === 'u' || parentElement?.tagName?.toLowerCase() === 'i'){
+                  document.execCommand(command)
+                }
               }
               
             }
           } 
           else if(command === 'justifyLeft'){
             if (parentElement) {
-              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || 'b' || 'u' || 'i'){
-                document.execCommand(command)
-              }
+              // if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || 'b' || 'u' || 'i'){
+              //   document.execCommand(command)
+              // }
               let listElement = findListElement(parentElement);
               if (!listElement && parentElement?.tagName?.toLowerCase() === 'li') {
                 listElement = findListElement(range.commonAncestorContainer);
@@ -151,15 +154,19 @@ export function createButton(
                 listElement.style.width = ''
                 listElement.style.marginLeft = ''
                 listElement.style.marginRight = ''
+              } else {
+                if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || parentElement?.tagName?.toLowerCase() === 'b' || parentElement?.tagName?.toLowerCase() === 'u' || parentElement?.tagName?.toLowerCase() === 'i'){
+                  document.execCommand(command)
+                }
               }
               
             }
           }
           else if(command === 'justifyRight'){
             if (parentElement) {
-              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || 'b' ||'u'||'i'){
-                document.execCommand(command)
-              }
+              // if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || 'b' ||'u'||'i'){
+              //   document.execCommand(command)
+              // }
               let listElement = findListElement(parentElement);
               if (!listElement && parentElement?.tagName?.toLowerCase() === 'li') {
                 listElement = findListElement(range.commonAncestorContainer);
@@ -176,6 +183,10 @@ export function createButton(
                 listElement.style.width = ''
                 listElement.style.marginLeft = ''
                 listElement.style.marginRight = ''
+              } else {
+                if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || parentElement?.tagName?.toLowerCase() === 'b' || parentElement?.tagName?.toLowerCase() === 'u' || parentElement?.tagName?.toLowerCase() === 'i'){
+                  document.execCommand(command)
+                }
               }
               
             }
