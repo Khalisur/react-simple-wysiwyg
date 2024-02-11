@@ -112,7 +112,7 @@ export function createButton(
           const parentElement = range.commonAncestorContainer.parentElement;
           if(command === 'justifyCenter'){
             if (parentElement) {
-              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span'){
+              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || parentElement?.tagName?.toLowerCase() === 'b' || parentElement?.tagName?.toLowerCase() === 'u' || parentElement?.tagName?.toLowerCase() === 'i'){
                 document.execCommand(command)
               }
               let listElement = findListElement(parentElement);
@@ -132,7 +132,7 @@ export function createButton(
           } 
           else if(command === 'justifyLeft'){
             if (parentElement) {
-              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span'){
+              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || 'b' || 'u' || 'i'){
                 document.execCommand(command)
               }
               let listElement = findListElement(parentElement);
@@ -157,7 +157,7 @@ export function createButton(
           }
           else if(command === 'justifyRight'){
             if (parentElement) {
-              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span'){
+              if(parentElement?.tagName?.toLowerCase() === 'div' || parentElement?.tagName?.toLowerCase() === 'span' || 'b' ||'u'||'i'){
                 document.execCommand(command)
               }
               let listElement = findListElement(parentElement);
